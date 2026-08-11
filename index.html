@@ -194,11 +194,20 @@
   .reel-card:hover{ border-color:var(--teal); }
   .reel-thumb{
     aspect-ratio:16/9; position:relative; display:flex; align-items:center; justify-content:center;
-    background-size:cover; background-position:center;
+    background-size:cover; background-position:center; cursor:pointer; overflow:hidden;
   }
-  .reel-thumb video{
-    width:100%; height:100%; object-fit:cover; display:block; background:#000;
+  .reel-thumb img.reel-poster{
+    position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:0;
   }
+  .reel-thumb-link{
+    position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
+    text-decoration:none; z-index:1;
+  }
+  .reel-thumb-link::after{
+    content:""; position:absolute; inset:0; background:rgba(20,22,26,0.15);
+    transition:background 0.2s;
+  }
+  .reel-card:hover .reel-thumb-link::after{ background:rgba(20,22,26,0.35); }
   .reel-thumb.t1{ background:linear-gradient(135deg,#1B1E24 0%,#243138 60%,#3ED9C4 160%); }
   .reel-thumb.t2{ background:linear-gradient(135deg,#1B1E24 0%,#2E241C 60%,#F2A93B 160%); }
   .reel-thumb.t3{ background:linear-gradient(135deg,#1B1E24 0%,#20242E 60%,#5C6BC0 160%); }
@@ -420,10 +429,14 @@
     <div class="work-grid">
       <div class="reel-card">
         <div class="reel-thumb t1">
-          <video controls preload="metadata" poster="1.png">
-            <source src="1.mp4" type="video/mp4">
-            Your browser doesn't support embedded video.
-          </video>
+          <img class="reel-poster" src="1.png" alt="Sunset Creatives thumbnail" onerror="this.style.display='none'">
+          <a class="reel-thumb-link" href="https://drive.google.com/file/d/1qDjn4gRYO2L6zW54KElbN8euOEyvctOQ/view?usp=drive_link" target="_blank" rel="noopener">
+            <span class="sample-tag">SAMPLE 01</span>
+            <span class="play-btn">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M6 4L20 12L6 20V4Z" fill="#EDEAE4"/></svg>
+            </span>
+            <span class="reel-duration">WATCH →</span>
+          </a>
         </div>
         <div class="reel-body">
           <h3>Sunset Creatives</h3>
@@ -434,10 +447,14 @@
 
       <div class="reel-card">
         <div class="reel-thumb t2">
-          <video controls preload="metadata" poster="2.png">
-            <source src="2.mp4" type="video/mp4">
-            Your browser doesn't support embedded video.
-          </video>
+          <img class="reel-poster" src="2.png" alt="Intramurals school pageant thumbnail" onerror="this.style.display='none'">
+          <a class="reel-thumb-link" href="https://drive.google.com/file/d/1txFjOipKxq7wfZp-E8NQMSYQzK9Xqmg4/view?usp=drive_link" target="_blank" rel="noopener">
+            <span class="sample-tag">SAMPLE 02</span>
+            <span class="play-btn">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M6 4L20 12L6 20V4Z" fill="#EDEAE4"/></svg>
+            </span>
+            <span class="reel-duration">WATCH →</span>
+          </a>
         </div>
         <div class="reel-body">
           <h3>Intramurals — School Pageant</h3>
@@ -448,10 +465,14 @@
 
       <div class="reel-card">
         <div class="reel-thumb t3">
-          <video controls preload="metadata" poster="3.png">
-            <source src="3.mp4" type="video/mp4">
-            Your browser doesn't support embedded video.
-          </video>
+          <img class="reel-poster" src="3.png" alt="Life and Works of Rizal thumbnail" onerror="this.style.display='none'">
+          <a class="reel-thumb-link" href="https://drive.google.com/file/d/11v66JhRHI2kEmCgm5TdYgu1prp6ATWAS/view?usp=drive_link" target="_blank" rel="noopener">
+            <span class="sample-tag">SAMPLE 03</span>
+            <span class="play-btn">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M6 4L20 12L6 20V4Z" fill="#EDEAE4"/></svg>
+            </span>
+            <span class="reel-duration">WATCH →</span>
+          </a>
         </div>
         <div class="reel-body">
           <h3>Life and Works of Rizal</h3>
@@ -461,7 +482,7 @@
       </div>
     </div>
 
-    <p class="work-note">Each card has a real HTML5 video player with a thumbnail (poster image) shown before you hit play. Place your MP4 files and matching poster images (1.png, 2.png, 3.png) next to this HTML file using the filenames already set in the code.</p>
+    <p class="work-note">Each card shows a poster image and links out to the video's own URL — click the thumbnail to open it in a new tab. Place your thumbnail images (1.png, 2.png, 3.png) next to this HTML file, and replace the placeholder <code>href</code> links (your-video-link-1/2/3.example) with your actual YouTube, Vimeo, or Drive share links.</p>
   </div>
 </section>
 
