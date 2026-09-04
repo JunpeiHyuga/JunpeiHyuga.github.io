@@ -3,20 +3,20 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mark Angelo Lasala — Wedding, Couple & Branding Video Editor</title>
+<title>Mark Angelo Lasala — Film Editor &amp; Content Creator</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg: #14161A;
-    --bg-panel: #1B1E24;
-    --ink: #EDEAE4;
-    --ink-dim: #9A9DA6;
-    --line: #2A2E36;
-    --teal: #3ED9C4;
-    --amber: #F2A93B;
-    --display: 'Space Grotesk', sans-serif;
+    --bg: #1A0F0F;
+    --bg-panel: #241414;
+    --ink: #F5EDE0;
+    --ink-dim: #B8A88E;
+    --line: #3A2020;
+    --teal: #D4AF37;
+    --amber: #A31621;
+    --display: 'Anton', sans-serif;
     --body: 'IBM Plex Sans', sans-serif;
     --mono: 'JetBrains Mono', monospace;
   }
@@ -31,15 +31,30 @@
   }
   a{ color:inherit; }
   img{ max-width:100%; display:block; }
+  img.reel-poster{ filter:sepia(0.2) contrast(1.15) saturate(1.15) brightness(0.95); }
+
+  body::before{
+    content:""; position:fixed; inset:0; z-index:999; pointer-events:none;
+    background:
+      radial-gradient(ellipse at center, transparent 45%, rgba(10,5,5,0.55) 100%),
+      url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='140' height='140'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.06'/></svg>");
+    mix-blend-mode:overlay; opacity:0.55;
+  }
 
   .wrap{ max-width:1120px; margin:0 auto; padding:0 32px; }
 
   /* ---------- NAV ---------- */
   header{
     position:sticky; top:0; z-index:50;
-    background:rgba(20,22,26,0.85);
+    background:rgba(26,15,15,0.9);
     backdrop-filter:blur(8px);
     border-bottom:1px solid var(--line);
+  }
+  header::after{
+    content:""; display:block; height:6px;
+    background-image:radial-gradient(circle, var(--teal) 1.6px, transparent 2px);
+    background-size:20px 6px; background-position:center;
+    opacity:0.55;
   }
   nav.wrap{
     display:flex; align-items:center; justify-content:space-between;
@@ -65,6 +80,11 @@
 
   /* ---------- HERO ---------- */
   .hero{ padding:96px 0 72px; border-bottom:1px solid var(--line); position:relative; overflow:hidden; }
+  .hero::before{
+    content:""; position:absolute; inset:0; z-index:0; pointer-events:none;
+    background:radial-gradient(ellipse 60% 55% at 26% 25%, rgba(212,175,55,0.16), transparent 70%);
+  }
+  .hero > .wrap{ position:relative; z-index:1; }
   .hero-inner{ display:grid; grid-template-columns:1.4fr 0.9fr; gap:56px; align-items:center; }
   .tc{ font-family:var(--mono); font-size:13px; color:var(--ink-dim); letter-spacing:0.05em; }
   .tc .teal{ color:var(--teal); }
@@ -73,14 +93,15 @@
   }
   .rec-dot{
     width:8px; height:8px; border-radius:50%; background:var(--amber);
-    box-shadow:0 0 0 4px rgba(242,169,59,0.15);
+    box-shadow:0 0 0 4px rgba(163,22,33,0.3);
     animation:pulse 2s infinite;
   }
   @keyframes pulse{ 0%,100%{opacity:1;} 50%{opacity:0.4;} }
   h1{
-    font-family:var(--display); font-weight:700;
-    font-size:clamp(40px, 6vw, 76px);
-    line-height:0.98; letter-spacing:-0.02em;
+    font-family:var(--display); font-weight:400;
+    font-size:clamp(46px, 6.5vw, 84px);
+    line-height:0.94; letter-spacing:0.005em;
+    text-transform:uppercase;
   }
   h1 .accent{ color:var(--teal); }
   .hero-sub{
@@ -112,7 +133,7 @@
   }
   .hero-photo img{
     width:100%; aspect-ratio:4/5; object-fit:cover; border-radius:3px;
-    filter:grayscale(15%) contrast(1.05);
+    filter:sepia(0.18) contrast(1.15) saturate(1.1) brightness(0.96);
   }
   .hero-photo-caption{
     display:flex; justify-content:space-between; margin-top:10px;
@@ -142,7 +163,7 @@
   }
   .scrubber-fill{
     position:absolute; left:0; top:0; height:100%; width:38%;
-    background:linear-gradient(90deg, var(--teal), var(--amber));
+    background:linear-gradient(90deg, var(--ink-dim), var(--teal));
     border-radius:2px;
   }
   .scrubber-head{
@@ -158,9 +179,10 @@
   /* ---------- SECTION HEADS ---------- */
   section{ padding:88px 0; border-bottom:1px solid var(--line); }
   .section-head{ display:flex; align-items:baseline; gap:16px; margin-bottom:48px; flex-wrap:wrap; }
-  .section-head .tc{ white-space:nowrap; }
+  .section-head .tc{ white-space:normal; }
   .section-head h2{
-    font-family:var(--display); font-size:clamp(28px,4vw,40px); font-weight:600;
+    font-family:var(--display); font-size:clamp(32px,4.5vw,46px); font-weight:400;
+    text-transform:uppercase; letter-spacing:0.02em;
   }
   .section-rule{ flex:1; height:1px; background:var(--line); min-width:40px; }
 
@@ -188,13 +210,19 @@
   /* ---------- HIGHLIGHT (featured video) ---------- */
   .highlight-card{
     display:grid; grid-template-columns:1.5fr 1fr; gap:0;
-    background:var(--bg-panel); border:1px solid var(--teal); border-radius:4px;
+    background:var(--bg-panel); border:1px solid var(--amber); border-radius:4px;
     overflow:hidden; margin-bottom:32px; position:relative;
   }
+  .highlight-card::before, .highlight-card::after{
+    content:""; position:absolute; left:60%; width:16px; height:16px; border-radius:50%;
+    background:var(--bg); z-index:3;
+  }
+  .highlight-card::before{ top:-8px; }
+  .highlight-card::after{ bottom:-8px; }
   .highlight-thumb{
     aspect-ratio:16/9; position:relative; display:flex; align-items:center; justify-content:center;
     cursor:pointer; overflow:hidden;
-    background:linear-gradient(135deg,#1B1E24 0%,#233B38 55%,#3ED9C4 170%);
+    background:linear-gradient(135deg,#1A0F0F 0%,#3A1216 50%,#A31621 85%,#D4AF37 150%);
   }
   .highlight-thumb img.reel-poster{
     position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:0;
@@ -210,8 +238,8 @@
   .highlight-card:hover .highlight-thumb-link::after{ background:rgba(20,22,26,0.35); }
   .highlight-tag{
     position:absolute; top:16px; left:16px; z-index:2; display:flex; align-items:center; gap:8px;
-    font-family:var(--mono); font-size:11px; letter-spacing:0.08em; color:var(--bg);
-    background:var(--teal); padding:5px 10px; border-radius:2px; font-weight:600;
+    font-family:var(--mono); font-size:11px; letter-spacing:0.08em; color:var(--ink);
+    background:var(--amber); padding:5px 10px; border-radius:2px; font-weight:600;
   }
   .highlight-tag .rec-dot{ background:var(--bg); box-shadow:none; width:6px; height:6px; }
   .highlight-play-btn{
@@ -219,7 +247,7 @@
     border:1.5px solid rgba(237,234,228,0.6); display:flex; align-items:center; justify-content:center;
     transition:background 0.2s, border-color 0.2s, transform 0.2s;
   }
-  .highlight-card:hover .highlight-play-btn{ border-color:var(--teal); background:rgba(20,22,26,0.8); transform:scale(1.05); }
+  .highlight-card:hover .highlight-play-btn{ border-color:var(--amber); background:rgba(20,22,26,0.8); transform:scale(1.05); }
   .highlight-play-btn svg{ width:22px; height:22px; margin-left:3px; }
   .highlight-duration{
     position:absolute; bottom:14px; right:16px; z-index:2; font-family:var(--mono); font-size:11px;
@@ -236,13 +264,16 @@
   }
   @media (max-width:860px){
     .highlight-card{ grid-template-columns:1fr; }
+    .highlight-card::before, .highlight-card::after{ top:auto; left:auto; bottom:auto; }
+    .highlight-card::before{ top:calc(56.25% - 8px); left:-8px; }
+    .highlight-card::after{ top:calc(56.25% - 8px); right:-8px; left:auto; }
   }
 
   /* ---------- WORK ---------- */
   .work-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:28px; }
   .reel-card{
     background:var(--bg-panel); border:1px solid var(--line); border-radius:4px; overflow:hidden;
-    transition:border-color 0.2s;
+    transition:border-color 0.2s; position:relative;
   }
   .reel-card:hover{ border-color:var(--teal); }
   .reel-thumb{
@@ -261,10 +292,10 @@
     transition:background 0.2s;
   }
   .reel-card:hover .reel-thumb-link::after{ background:rgba(20,22,26,0.35); }
-  .reel-thumb.t1{ background:linear-gradient(135deg,#1B1E24 0%,#243138 60%,#3ED9C4 160%); }
-  .reel-thumb.t2{ background:linear-gradient(135deg,#1B1E24 0%,#2E241C 60%,#F2A93B 160%); }
-  .reel-thumb.t3{ background:linear-gradient(135deg,#1B1E24 0%,#20242E 60%,#5C6BC0 160%); }
-  .reel-thumb.t4{ background:linear-gradient(135deg,#1B1E24 0%,#25201C 60%,#D97B3E 160%); }
+  .reel-thumb.t1{ background:linear-gradient(135deg,#1A0F0F 0%,#2E1A1A 60%,#B8A88E 160%); }
+  .reel-thumb.t2{ background:linear-gradient(135deg,#1A0F0F 0%,#2E1A1A 60%,#D4AF37 160%); }
+  .reel-thumb.t3{ background:linear-gradient(135deg,#1A0F0F 0%,#241414 60%,#8C6B3F 160%); }
+  .reel-thumb.t4{ background:linear-gradient(135deg,#1A0F0F 0%,#2A1414 60%,#A31621 160%); }
   .sample-tag{
     position:absolute; top:12px; left:12px; font-family:var(--mono); font-size:10px;
     letter-spacing:0.08em; color:var(--ink-dim); border:1px solid rgba(255,255,255,0.2);
@@ -281,7 +312,13 @@
     position:absolute; bottom:10px; right:12px; font-family:var(--mono); font-size:11px;
     background:rgba(20,22,26,0.7); padding:3px 7px; border-radius:2px; color:var(--ink);
   }
-  .reel-body{ padding:20px 22px 22px; }
+  .reel-body{ padding:20px 22px 22px; border-top:2px dashed var(--line); position:relative; }
+  .reel-body::before, .reel-body::after{
+    content:""; position:absolute; top:-7px; width:14px; height:14px; border-radius:50%;
+    background:var(--bg);
+  }
+  .reel-body::before{ left:10px; }
+  .reel-body::after{ right:10px; }
   .reel-body h3{ font-family:var(--display); font-size:17px; font-weight:600; margin-bottom:4px; }
   .reel-body p{ font-size:13px; color:var(--ink-dim); }
   .reel-meta{ display:flex; gap:10px; margin-top:14px; flex-wrap:wrap; }
@@ -372,10 +409,10 @@
       <div>
         <div class="eyebrow">
           <div class="rec-dot"></div>
-          <span class="tc">REC &nbsp;·&nbsp; VIDEO EDITOR &nbsp;·&nbsp; PERSONAL PORTFOLIO &nbsp;·&nbsp; PHILIPPINES</span>
+          <span class="tc">NOW SHOWING &nbsp;·&nbsp; FILM EDITOR &nbsp;·&nbsp; PERSONAL PORTFOLIO &nbsp;·&nbsp; PHILIPPINES</span>
         </div>
         <h1>Cutting stories<br>that hold <span class="accent">attention.</span></h1>
-        <p class="hero-sub">I'm Mark Angelo Lasala, a fresh graduate video editor handling wedding films, couple/pre-nup videos, and branding content — plus event coverage and other projects along the way. This portfolio is a personal collection of practice edits and sample work as I grow my skills.</p>
+        <p class="hero-sub">I'm Mark Angelo Lasala, a fresh graduate video editor with a growing focus on film — short films and story-driven shorts, plus AI-assisted content and branding work. I cut for landscape or portrait, whatever the story calls for. This portfolio is a personal collection of practice edits and sample work as I grow my skills.</p>
         <div class="hero-actions">
           <a class="btn-primary" href="#work">View sample edits</a>
           <a class="btn-ghost" href="#contact">Get in touch</a>
@@ -386,7 +423,7 @@
         <img src="profile.jpg" alt="Mark Angelo Lasala">
         <div class="hero-photo-caption">
           <span>MARK ANGELO LASALA</span>
-          <span>VIDEO EDITOR</span>
+          <span>FILM EDITOR</span>
         </div>
 
         <div class="hero-photo-small">
@@ -413,22 +450,24 @@
 <section id="about">
   <div class="wrap">
     <div class="section-head">
-      <span class="tc">01</span>
+      <span class="tc">A FILM BY</span>
       <h2>About</h2>
       <div class="section-rule"></div>
     </div>
     <div class="about-grid">
       <div>
-        <p>I'm <strong>Mark Angelo Lasala</strong>, a fresh graduate building my skills as a video editor. This is a personal portfolio — a place to collect the sample edits I've made while learning, with a focus on <strong>wedding films, couple/pre-nup videos, and branding content</strong>, along with event coverage and other projects.</p>
+        <p>I'm <strong>Mark Angelo Lasala</strong>, a fresh graduate building my skills as a video editor with a growing pull toward film. This is a personal portfolio — a place to collect the sample edits I've made while learning, with a focus on <strong>short films, story-driven shorts, and AI-assisted branding content</strong>, along with event coverage and other projects.</p>
         <p>I'm still early in my journey, so most of what's here is practice work and self-directed projects rather than paid client work. I'm using it to sharpen my pacing, storytelling, and visual style while I look for internship or entry-level opportunities.</p>
         <div class="tool-row">
           <span class="tool-pill">CapCut</span>
-          <span class="tool-pill">AI Tools (effects)</span>
+          <span class="tool-pill">Canva</span>
+          <span class="tool-pill">AI Tools (content &amp; effects)</span>
+          <span class="tool-pill">Practicing other editing tools</span>
         </div>
       </div>
       <div class="stat-list">
         <div class="stat"><b>Fresh graduate</b><span>New to the field, learning by doing</span></div>
-        <div class="stat"><b>16:9 / 9:16 / 1:1</b><span>Comfortable exporting for different platforms</span></div>
+        <div class="stat"><b>Landscape &amp; portrait</b><span>Cut for film, social, or either aspect ratio</span></div>
         <div class="stat"><b>Open to opportunities</b><span>Full-time, part-time, or freelance work</span></div>
       </div>
     </div>
@@ -438,34 +477,34 @@
 <section id="skills">
   <div class="wrap">
     <div class="section-head">
-      <span class="tc">02</span>
+      <span class="tc">FEATURING</span>
       <h2>What I can handle</h2>
       <div class="section-rule"></div>
     </div>
     <div class="skills-grid">
       <div class="skill-card">
-        <h3>Wedding videos</h3>
-        <p>Full wedding-day edits — ceremony, reception, and highlight reels that keep the emotion intact.</p>
+        <h3>Short films</h3>
+        <p>Story-first edits with a cinematic pace — cuts that build toward a feeling, not just a highlight reel.</p>
       </div>
       <div class="skill-card">
-        <h3>Couple / pre-nup videos</h3>
-        <p>Story-driven edits for couples, paced and scored to feel personal rather than generic.</p>
+        <h3>Shorts &amp; AI-assisted content</h3>
+        <p>Turning raw footage into short-form content with AI tools, built for how people actually watch — fast and to the point.</p>
       </div>
       <div class="skill-card">
         <h3>Branding videos</h3>
-        <p>Business and brand-style edits that introduce a product, service, or personal brand clearly.</p>
+        <p>Business and brand-style edits shaped with a filmic sensibility — clear message, still cinematic.</p>
       </div>
       <div class="skill-card">
         <h3>Event coverage</h3>
         <p>School events, programs, and other occasions cut down into a clean, watchable recap.</p>
       </div>
       <div class="skill-card">
-        <h3>Social media cutdowns</h3>
-        <p>Re-cutting longer footage into short vertical or square versions for social platforms.</p>
+        <h3>Portrait &amp; landscape delivery</h3>
+        <p>Comfortable cutting either way — vertical for shorts and social, landscape for film and full coverage.</p>
       </div>
       <div class="skill-card">
-        <h3>Titles & AI-assisted effects</h3>
-        <p>Lower-thirds, captions, and visual effects built in CapCut with AI tools for extra polish.</p>
+        <h3>Titles, graphics &amp; effects</h3>
+        <p>Lower-thirds, captions, and visual polish built in CapCut and Canva, with AI tools layered in.</p>
       </div>
     </div>
   </div>
@@ -474,7 +513,7 @@
 <section id="work">
   <div class="wrap">
     <div class="section-head">
-      <span class="tc">03</span>
+      <span class="tc">NOW PLAYING</span>
       <h2>Sample edits</h2>
       <div class="section-rule"></div>
     </div>
@@ -491,7 +530,7 @@
         </a>
       </div>
       <div class="highlight-body">
-        <span class="tc">FEATURED</span>
+        <span class="tc">FEATURE PRESENTATION</span>
         <h3>Ang Hindi Natin Natapos</h3>
         <p>A short film about two people who once dreamed of a future together, but found themselves walking separate paths. Sometimes, moving on doesn't mean forgetting — it means learning to live with the memories, accepting what happened, and understanding that not every love story reaches the ending we imagined. And perhaps, somewhere in the future, their paths may cross again, when they are both ready for everything they once couldn't handle.</p>
         <div class="highlight-meta"><span>Short Film</span><span>Drama</span></div>
@@ -501,7 +540,7 @@
     <div class="work-grid">
       <div class="reel-card">
         <div class="reel-thumb t1">
-          <img class="reel-poster" src="1.png" alt="Sunset Creatives thumbnail" onerror="this.style.display='none'">
+          <img class="reel-poster" src="1.png" alt="Panaginip thumbnail" onerror="this.style.display='none'">
           <a class="reel-thumb-link" href="https://drive.google.com/file/d/1qDjn4gRYO2L6zW54KElbN8euOEyvctOQ/view?usp=drive_link" target="_blank" rel="noopener">
             <span class="sample-tag">SAMPLE 01</span>
             <span class="play-btn">
@@ -511,8 +550,8 @@
           </a>
         </div>
         <div class="reel-body">
-          <h3>Sunset Creatives</h3>
-          <p>My first edit — made for Sunset Creatives, our school's creative organization.</p>
+          <h3>Panaginip</h3>
+          <p>A man dreams of all the memories he once loved — replaying them only because he has already lost them.</p>
           <div class="reel-meta"><span>School Org</span><span>First Edit</span></div>
         </div>
       </div>
@@ -537,7 +576,7 @@
 
       <div class="reel-card">
         <div class="reel-thumb t3">
-          <img class="reel-poster" src="3.png" alt="Life and Works of Rizal thumbnail" onerror="this.style.display='none'">
+          <img class="reel-poster" src="3.png" alt="Mi Ultimo Adios thumbnail" onerror="this.style.display='none'">
           <a class="reel-thumb-link" href="https://drive.google.com/file/d/11v66JhRHI2kEmCgm5TdYgu1prp6ATWAS/view?usp=drive_link" target="_blank" rel="noopener">
             <span class="sample-tag">SAMPLE 03</span>
             <span class="play-btn">
@@ -547,28 +586,28 @@
           </a>
         </div>
         <div class="reel-body">
-          <h3>Life and Works of Rizal</h3>
-          <p>A class project video on the life and works of Jose Rizal.</p>
+          <h3>Mi Ultimo Adios</h3>
+          <p>"Mi Ultimo Adios" — My Last Farewell, Jose Rizal's final poem, brought to the screen as a class project.</p>
           <div class="reel-meta"><span>Academic</span><span>Documentary</span></div>
         </div>
       </div>
     </div>
 
-    <p class="work-note">Each card shows a poster image and links out to the video's own URL — click the thumbnail to open it in a new tab. Place your thumbnail images (highlight.png, 1.png, 2.png, 3.png) next to this HTML file, and replace the placeholder <code>href</code> links with your actual YouTube, Vimeo, or Drive share links — including the highlight reel link above.</p>
+    <p class="work-note">Each card shows a poster image and links out to the video's own URL — click the thumbnail to open it in a new tab. Place your thumbnail images (4.png, 1.png, 2.png, 3.png) next to this HTML file, and replace the placeholder <code>href</code> links with your actual YouTube, Vimeo, or Drive share links — including the highlight reel link above.</p>
   </div>
 </section>
 
 <section id="process">
   <div class="wrap">
     <div class="section-head">
-      <span class="tc">04</span>
+      <span class="tc">BEHIND THE SCENES</span>
       <h2>How I approach an edit</h2>
       <div class="section-rule"></div>
     </div>
     <div class="process-row">
       <div class="process-step">
         <span class="tc">REVIEW</span>
-        <h3>Footage & goal</h3>
+        <h3>Footage &amp; goal</h3>
         <p>Figure out what the piece needs to say before touching the timeline.</p>
       </div>
       <div class="process-step">
@@ -579,12 +618,12 @@
       <div class="process-step">
         <span class="tc">REFINE</span>
         <h3>Titles, effects, sound</h3>
-        <p>Titles, AI-assisted effects, and mix layered in once the cut feels right.</p>
+        <p>Titles, graphics, and AI-assisted effects layered in with CapCut and Canva once the cut feels right.</p>
       </div>
       <div class="process-step">
         <span class="tc">EXPORT</span>
         <h3>Final export</h3>
-        <p>Delivered in the aspect ratio the piece calls for.</p>
+        <p>Delivered landscape or portrait, in the aspect ratio the piece calls for.</p>
       </div>
     </div>
   </div>
@@ -598,15 +637,16 @@
         <div class="contact-links">
           <a href="mailto:markangelodev00@gmail.com">→ markangelodev00@gmail.com</a>
           <a href="https://www.linkedin.com/in/mark-angelo-lasala-4437b2372/">→ LinkedIn</a>
+          <a href="https://www.facebook.com/angel.lolasala.16">→ Facebook</a>
         </div>
       </div>
       <div class="contact-panel">
-        <span class="tc">STATUS</span>
+        <span class="tc">BOX OFFICE</span>
         <ul>
           <li><span>Currently</span><b>Fresh graduate</b></li>
           <li><span>Open to</span><b>Full time or part-time opportunities</b></li>
-          <li><span>Handles</span><b>Wedding, couple, branding & more</b></li>
-          <li><span>Tools</span><b>CapCut, AI tools</b></li>
+          <li><span>Handles</span><b>Film, shorts &amp; AI-assisted branding</b></li>
+          <li><span>Tools</span><b>CapCut, Canva + more (practicing)</b></li>
           <li><span>Based in</span><b>Philippines</b></li>
         </ul>
       </div>
